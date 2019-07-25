@@ -13,7 +13,7 @@ node
        // sh 'mvn test'
         def MavenHome = tool 'Maven-3.6.1'
    // run Gradle to execute compile and unit testing
-  sh "'${MavenHome}/bin/mvn' test"
+  sh "'${MavenHome}/bin/mvn' clean install"
     }
     
     stage('static Code analsys')
