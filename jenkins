@@ -15,10 +15,9 @@ node
     stage('JUnit Test Cases')
     {
         echo "Maven Test Case Stage"
-       // sh 'mvn test'
+     
        def MavenHome = tool 'Maven-3.6.1'
         
-   // run Gradle to execute compile and unit testing
   sh "'${MavenHome}/bin/mvn' test"
     }
     
