@@ -1,4 +1,5 @@
 def workspace;
+def MavenHome = tool 'Maven-3.6.1'
 node
 {
     stage('Git CheckOut ')
@@ -11,24 +12,26 @@ node
     {
         echo "Maven Test Case Stage"
        // sh 'mvn test'
-        def MavenHome = tool 'Maven-3.6.1'
+        
    // run Gradle to execute compile and unit testing
-  sh "'${MavenHome}/bin/mvn' clean install"
+  sh "'${MavenHome}/bin/mvn' test"
     }
     
-    stage('static Code analsys')
+    stage('integration tests')
     {
         echo "Statis Code analysis Stage"
+        sh "'${MavenHome}/bin/mvn' verify"
     }
     
-    stage('Build')
+   stage('Build')
     {
-        echo "Buils Stage"
+        echo "Statis Code analysis Stage"
+        sh "'${MavenHome}/bin/mvn' clean install"
     }
     
     stage('Deployment')
     {
-        echo "Deployment"
+        echo "Deployment Stage"
         
     }
 
