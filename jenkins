@@ -5,7 +5,7 @@ node
 
     stage ('Trigger Condition')
     {
-    properties([pipelineTriggers([eventTrigger(jmespathQuery("repository.name=='java-maven-junit-helloworld'&&head_commit.author.username!='test_account'"))])])
+    properties([pipelineTriggers([githubPush()])])
     }
     stage('Discard Old Builds')
     {
