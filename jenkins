@@ -2,6 +2,11 @@ def workspace;
 //Test
 node
 {
+
+    stage ('Trigger Condition')
+    {
+    properties([pipelineTriggers([eventTrigger(jmespathQuery("repository.name=='java-maven-junit-helloworld'&&head_commit.author.username!='test_account'"))])])
+    }
     stage('Discard Old Builds')
     {
     properties([buildDiscarder(logRotator(artifactDaysToKeepStr: '', artifactNumToKeepStr: '3', daysToKeepStr: '2', numToKeepStr: '2'))])
