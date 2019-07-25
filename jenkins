@@ -7,6 +7,11 @@ node
     
         workspace = pwd()
     }
+    stage('JUnit Test Cases')
+    {
+        echo "Maven Test Case Stage"
+        sh 'mvn test'
+    }
     
     stage('static Code analsys')
     {
@@ -17,10 +22,7 @@ node
     {
         echo "Buils Stage"
     }
-    stage('JUnit Test Cases')
-    {
-        echo "J Unit Test Cases Run"
-    }
+    
     stage('Deployment')
     {
         echo "Deployment"
