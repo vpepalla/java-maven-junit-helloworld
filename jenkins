@@ -2,7 +2,10 @@ def workspace;
 
 node
 {
-properties([buildDiscarder(logRotator(artifactDaysToKeepStr: '', artifactNumToKeepStr: '3', daysToKeepStr: '2', numToKeepStr: '2'))])
+    stage('Discard Old Builds')
+    {
+    properties([buildDiscarder(logRotator(artifactDaysToKeepStr: '', artifactNumToKeepStr: '3', daysToKeepStr: '2', numToKeepStr: '2'))])
+    }
     stage('Git CheckOut ')
     {
         checkout([$class: 'GitSCM', branches: [[name: '*/master']], doGenerateSubmoduleConfigurations: false, extensions: [], submoduleCfg: [], userRemoteConfigs: [[credentialsId: 'GIT_Credentilas_Venki', url: 'https://github.com/vpepalla/java-maven-junit-helloworld.git']]])
