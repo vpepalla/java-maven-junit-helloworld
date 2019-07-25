@@ -1,0 +1,31 @@
+def workspace;
+node
+{
+    stage('Git CheckOut ')
+    {
+        checkout([$class: 'GitSCM', branches: [[name: '*/master']], doGenerateSubmoduleConfigurations: false, extensions: [], submoduleCfg: [], userRemoteConfigs: [[credentialsId: 'GIT_Credentilas_Venki', url: 'https://github.com/jglick/simple-maven-project-with-tests.git']]])
+    
+        workspace = pwd()
+    }
+    
+    stage('static Code analsys')
+    {
+        echo "Statis Code analysis Stage"
+    }
+    
+    stage('Build')
+    {
+        echo "Buils Stage"
+    }
+    stage('JUnit Test Cases')
+    {
+        echo "J Unit Test Cases Run"
+    }
+    stage('Deployment')
+    {
+        echo "Deployment"
+        
+    }
+
+}
+
