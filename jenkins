@@ -3,7 +3,7 @@ node
 {
     stage('Git CheckOut ')
     {
-        checkout([$class: 'GitSCM', branches: [[name: '*/master']], doGenerateSubmoduleConfigurations: false, extensions: [], submoduleCfg: [], userRemoteConfigs: [[credentialsId: 'GIT_Credentilas_Venki', url: 'https://github.com/jglick/simple-maven-project-with-tests.git']]])
+        checkout([$class: 'GitSCM', branches: [[name: '*/master']], doGenerateSubmoduleConfigurations: false, extensions: [], submoduleCfg: [], userRemoteConfigs: [[credentialsId: 'GIT_Credentilas_Venki', url: 'https://github.com/vpepalla/java-maven-junit-helloworld.git']]])
     
         workspace = pwd()
     }
