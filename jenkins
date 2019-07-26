@@ -1,15 +1,12 @@
 def workspace;
 
-
 node
 {
 
-    stage ('Trigger Condition')
-    {
-    properties([pipelineTriggers([githubPush()])])
-    }
+    
     stage('Discard Old Builds')
     {
+    properties([pipelineTriggers([githubPush()])])
     properties([buildDiscarder(logRotator(artifactDaysToKeepStr: '', artifactNumToKeepStr: '3', daysToKeepStr: '2', numToKeepStr: '2'))])
     }
     stage('Git CheckOut ')
