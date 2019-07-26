@@ -2,7 +2,6 @@ def workspace;
 
 node
 {
-
     
     stage('Discard Old Builds')
     {
