@@ -1,4 +1,4 @@
-def MavenHome = tool 'Maven-3.6.1'
+def workspace;
 
 node
 {
@@ -19,7 +19,7 @@ node
     {
         echo "Maven Test Case Stage"
      
-       // def MavenHome = tool 'Maven-3.6.1'
+       def MavenHome = tool 'Maven-3.6.1'
         
   sh "'${MavenHome}/bin/mvn' test"
     }
