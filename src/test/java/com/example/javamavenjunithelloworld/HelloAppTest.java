@@ -44,7 +44,7 @@ public class HelloAppTest {
         String[] args = {"bicycle"};
 
         try {
-            HelloApp.main(args);
+            HelloApp1.main(args);
             // Our custom SecurityManager should have thrown an exception when HelloApp exited.
             // This means this line below cannot be reached. To make sure that our custom SecurityManager
             // works as expected, we fail the test if this line is ever reached:
@@ -60,7 +60,7 @@ public class HelloAppTest {
         String[] args = {"999"};
 
         try {
-            HelloApp.main(args);
+            HelloApp1.main(args);
             fail("Unreachable.");
         } catch (TestExitException e) {
             // Did the program exit with the expected error code?
@@ -72,7 +72,7 @@ public class HelloAppTest {
     public void testDefaultArgument() {
         // Passing no arguments should work.
         String[] args = {};
-        HelloApp.main(args);
+        HelloApp1.main(args);
     }
 
     @Test
@@ -81,6 +81,6 @@ public class HelloAppTest {
         // method, but for purposes of full code coverage it is included. In general,
         // it is easier to aim for full code coverage and be done with it, than to remember why class X is stuck at
         // 95% code coverage.
-        new HelloApp1();
+        new HelloApp();
     }
 }
