@@ -1,4 +1,4 @@
-/*package com.example.javamavenjunithelloworld;
+package com.example.javamavenjunithelloworld;
 
 import com.example.javamavenjunithelloworld.TestingSecurityManager.TestExitException;
 import org.junit.jupiter.api.AfterAll;
@@ -10,7 +10,6 @@ import org.mockito.junit.jupiter.MockitoExtension;
 import static org.hamcrest.CoreMatchers.is;
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.junit.jupiter.api.Assertions.fail;
-*/
 
 /**
  * Unit test for HelloApp.
@@ -82,6 +81,6 @@ public class HelloAppTest {
         // method, but for purposes of full code coverage it is included. In general,
         // it is easier to aim for full code coverage and be done with it, than to remember why class X is stuck at
         // 95% code coverage.
-        new HelloApp();
+        new HelloApp1();
     }
 }
