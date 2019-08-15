@@ -6,7 +6,8 @@ node
     {
     
     //properties([buildDiscarder(logRotator(artifactDaysToKeepStr: '', artifactNumToKeepStr: '', daysToKeepStr: '2', numToKeepStr: '2')), pipelineTriggers([githubPush()])])
-    properties([[$class: 'JiraProjectProperty'], buildDiscarder(logRotator(artifactDaysToKeepStr: '', artifactNumToKeepStr: '', daysToKeepStr: '2', numToKeepStr: '')), pipelineTriggers([[$class: 'JiraChangelogTrigger', changelogMatchers: [[$class: 'JiraFieldChangelogMatcher', field: 'status', newValue: 'DONE', oldValue: 'IN PROGRESS']]], githubPush()])])
+    //properties([[$class: 'JiraProjectProperty'], buildDiscarder(logRotator(artifactDaysToKeepStr: '', artifactNumToKeepStr: '', daysToKeepStr: '2', numToKeepStr: '')), pipelineTriggers([[$class: 'JiraChangelogTrigger', changelogMatchers: [[$class: 'JiraFieldChangelogMatcher', field: 'status', newValue: 'DONE', oldValue: 'IN PROGRESS']]], githubPush()])])
+    properties([[$class: 'JiraProjectProperty'], buildDiscarder(logRotator(artifactDaysToKeepStr: '', artifactNumToKeepStr: '', daysToKeepStr: '2', numToKeepStr: '')), pipelineTriggers([[$class: 'JiraChangelogTrigger', changelogMatchers: [[$class: 'JiraFieldChangelogMatcher', field: 'status', newValue: 'DONE', oldValue: 'IN PROGRESS']], jqlFilter: 'project = teamdevops AND labels = Venki_CI_Integration'], githubPush()])])
     }
     stage('Git CheckOut ')
     {
