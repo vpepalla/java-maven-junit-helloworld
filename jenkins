@@ -43,6 +43,7 @@ node
     {
         echo "Deployment Stage"
         sh "whoami"
+        sh "docker images"
         sh "/bin/aws ecs describe-services --services nginx-web-app  --cluster V1"
         
     }
