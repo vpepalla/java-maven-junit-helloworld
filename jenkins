@@ -42,6 +42,8 @@ node
     stage('Deployment')
     {
         echo "Deployment Stage"
+        sh "docker images"
+        sh "/bin/aws ecs describe-services --services nginx-web-app  --cluster V1"
         
     }
 
